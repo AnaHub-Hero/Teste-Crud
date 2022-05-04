@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/estilo.css') }} ">
+    <title>Editar ou Apagar</title>
+</head>
+<body>
+
+<section id="novo">
+
+    <div id="card">
+        <h4>Editar Problema</h4>
+
+        <form action="/edita/{{informa.id}}" method="POST">
+
+            <div class="label-float">
+                <input type="text" maxlength="50" id="nome" name="nome" placeholder=" " required value='{{informa.nome}}' >
+                <label for="nome">Nome</label>
+            </div>
+
+            <div class="label-float">
+                <input type="text" maxlength="50" id="email" name="email" placeholder=" " required value='{{informa.email}}' >
+                <label for="email">Email</label>
+            </div>
+
+            <div class="label-float">
+                <input type="text" maxlength="50" id="codigo" name="codigo" placeholder=" " required value='{{informa.codigo}}' >
+                <label for="codigo">Codigo</label>
+            </div>
+
+            <div class="label-float">
+                <input type="text" maxlength="50" id="rua" name="rua" placeholder=" " required value='{{informa.rua}}' >
+                <label for="rua">Rua</label>
+            </div>
+
+            <div class="label-float">
+                <input type="text" maxlength="50" id="bairro" name="bairro" placeholder=" " required value='{{informa.bairro}}' >
+                <label for="bairro">Bairro</label>
+            </div>
+
+            <div class="label-float">
+                <input type="text" maxlength="50" id="cidade" name="cidade" placeholder=" " required value='{{informa.cidade}}' >
+                <label for="cidade">Cidade</label>
+            </div>
+
+            <div class="label-float">
+                <input type="text" maxlength="300" id="problema" name="problema" placeholder=" " required value='{{informa.problema}}' >
+                <label for="problema">Problema</label>
+            </div>
+
+            <div class="justify-center">
+                <button type="submit">Atualizar</button>
+            </div>
+        </form>
+    </div>
+
+</section>
+
+</body>
+</html>

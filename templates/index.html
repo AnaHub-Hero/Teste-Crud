@@ -1,0 +1,75 @@
+    {% extends 'base.html' %}
+
+    {% block conteudo %}
+
+   <title>PI-II Iluminação</title>
+
+<body>
+<header>
+
+</header>
+
+<main>
+
+    <section class="container">
+        <h2>Problemas</h2>
+        <h5><a href="/novo">Informar Problemas</a></h5>
+
+        <section id="comentei"><!-- ver comentei -->
+            <table>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Codigo</th>
+                    <th>Rua</th>
+                    <th>Bairro</th>
+                    <th>Cidade</th>
+                    <th>Problema</th>
+                    <th>Ações</th>
+               </tr>
+               </thead>
+
+                <tbody>
+                {% for m in problemas %}
+                <tr>
+                    <td>{{m.id}}</td>
+                    <td>{{m.nome}}</td>
+                    <td>{{m.email}}</td>
+                    <td>{{m.codigo}}</td>
+                    <td>{{m.rua}}</td>
+                    <td>{{m.bairro}}</td>
+                    <td>{{m.cidade}}</td>
+                    <td>{{m.problema}}</td>
+                    <td>
+                        <a href="/edita/{{m.id}}">Editar</a>
+                        <a href="/{{m.id}}">Apagar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        {% if informa != undefined %}
+        <section class="modal">
+
+            <div id="card">
+                <h2>Apagar o problema escrito por:</h2>
+                <hr>
+                <p>" {{informa.nome}} " </p>
+
+                <div id="btns">
+                    <a class="btn-cancelar" href="/#comentei">Cancelar</a><!-- ver comentei -->
+                    <a class="btn-apagar" href="/delete/{{informa.id}}">Apagar</a>
+                </div>
+            </div>
+
+        </section>
+        {% endif %}
+    </section>
+
+</main>
+</body>
+{% endblock %}
